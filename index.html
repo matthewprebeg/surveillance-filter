@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Surveillance Filter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <script src="https://cdn.jsdelivr.net/npm/p5@1.11.7/lib/p5.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/p5@1.11.7/lib/addons/p5.sound.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+<body>
+    <div id="boot-screen">
+        <pre id="terminal-output"></pre>
+        <button id="consent-button">YES</button>
+    </div>
+    <div id="content" style="display: none;"></div>
+        <div class="container">
+            <nav>
+                 <h1 class="menu-title">Surveillance Filter</h1>
+                 <p class="menu-description">An experimental interface for consenting to be seen. Your gazes toward the screen will be censored.</p>
+                <ul>
+                    <li>
+                    <a href="#" class="menu-item" data-id="about">About</a>
+                    <div class="menu-content" id="about">This is a project exploring digital surveillance, and the performance of privacy. For more information, read the full article by Matthew Prebeg here.</div>
+                    </li>
+                    <li>
+                    <a href="#" class="menu-item" data-id="security">Security</a>
+                    <div class="menu-content" id="security">Jokes aside, no data is collected when you use the filter. Tbh I wouldn't know how to do that if I wanted to.</div>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <div class="video-container">
+                    <div class="canvas-container"></div>
+                <div id="video-caption">Live feed: Gaze detection enabled. For best results, forward-facing head orientation recommended.</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made by <a href="https://matt-prebeg.com/">Matthew Prebeg.</a> All surveillance rights reserved.</p>
+    </footer>
+
+    <div id="scanlines"></div>
+
+
+    <script src="sketch.js"></script>
+    <script src="menu.js"></script>
+    <script src="boot.js"></script>
+
+</body>
