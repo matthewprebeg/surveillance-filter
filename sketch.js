@@ -4,16 +4,16 @@ let camera;
 let results;
 
 function setup() {
-  const w = min(windowWidth - 40, 640);
-  const h = (w * 3) / 4; // Keep 4:3 aspect ratio
-   let canvas = createCanvas(w, h);
-  canvas.parent(document.querySelector('.canvas-container'));
-  video = createCapture(VIDEO);
-  video.size(width, height);
-  video.hide();
-  faceMesh = new FaceMesh({
-    locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
-  });
+    const w = min(windowWidth - 40, 640);
+    const h = (w * 3) / 4; // Keep 4:3 aspect ratio
+    let canvas = createCanvas(w, h);
+    canvas.parent(document.querySelector('.canvas-container'));
+    video = createCapture(VIDEO);
+    video.size(w, h);
+    video.hide();
+    faceMesh = new FaceMesh({
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
+    });
 
   faceMesh.setOptions({
     maxNumFaces: 1,
