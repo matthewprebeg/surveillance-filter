@@ -214,3 +214,14 @@ footer a:hover {
         padding: 1rem 2rem;
     }
 }
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 640px;
+  display: block;
+  margin: 0 auto;
+}
+video {
+  display: none; /* keep hidden */
+}
