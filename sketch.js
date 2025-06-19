@@ -48,7 +48,26 @@ function onResults(res) {
 
 function draw() {
   background(0);
-  image(video, 0, 0, width, height);
+
+  const sw = video.width;
+  const sh = video.height;
+  const targetRatio = 4 / 3;
+
+  let cropWidth, cropHeight;
+  if (sw / sh > targetRatio) {
+    // video is wider than target ratio
+    cropHeight = sh;
+    cropWidth = sh * targetRatio;
+  } else {
+    // video is taller than target ratio
+    cropWidth = sw;
+    cropHeight = sw / targetRatio;
+  }
+
+  const sx = (sw - cropWidth) / 2;
+  const sy = (sh - cropHeight) / 2;
+
+  image(video, 0, 0, width, height, sx, sy, cropWidth, cropHeight);
 
   if (results && results.multiFaceLandmarks) {
     for (const landmarks of results.multiFaceLandmarks) {
